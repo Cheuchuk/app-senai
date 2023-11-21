@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_fisico/edit_page.dart';
 
 import 'pages/second_page.dart';
 
@@ -53,15 +54,46 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   CircleAvatar(
+                    radius: 40,
                     backgroundColor: Colors.white,
-                  ),
+                    backgroundImage: AssetImage(
+                        'assets/images/kk.jpeg'
+
+                      ),
+                    ),
+
                   Text(
-                    'Lucas Anaissi',
+                    'MEME DO CONFIA',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                    ),
                   ),
                 ],
               ),
+
+              InkWell(
+                onTap: () {
+                  showDialog( context: context,
+                      builder: (_) {
+                    return EditPage();
+                      }
+                  );
+                },
+                child: Text(
+                  'editar perfil',
+                  style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                ),
+                ),
+              ),
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Divider(
@@ -109,7 +141,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-drawerButton(context, 'Configurações', Icon(Icons.settings)),
 Widget drawerButton(
   BuildContext context,
   String label,
